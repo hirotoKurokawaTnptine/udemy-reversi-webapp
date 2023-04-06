@@ -1,16 +1,11 @@
 import mysql from "mysql2/promise";
 import { GameResult } from "./gameResult";
 
-export class GameResultRepository {
-  async findForGameId(
+export interface GameResultRepository {
+  findForGameId(
     conn: mysql.Connection,
     gameId: number
-  ): Promise<GameResult | undefined> {
-    // TODO
-    throw new Error("Not implemented");
-  }
+  ): Promise<GameResult | undefined> 
 
-  async save(conn: mysql.Connection, gameResult: GameResult) {
-    throw new Error("Not implemented");
-  }
+  save(conn: mysql.Connection, gameResult: GameResult): Promise<void>
 }
